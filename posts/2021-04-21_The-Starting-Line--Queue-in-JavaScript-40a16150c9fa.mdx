@@ -1,0 +1,102 @@
+---
+title: "The Starting Line: Queue in JavaScript"
+description: >-
+  As we make our way through more data structures we will be building off of
+  what we have learned from previous blog posts.
+date: "2021-04-21T16:47:51.430Z"
+categories: []
+keywords: []
+slug: /the-starting-line-queue-in-javascript-40a16150c9fa
+---
+
+**A**s we make our way through more data structures we will be building off of what we have learned from previous blog posts.
+
+In this article we will be diving into the **_Queue_**
+
+_/kyo͞o/  
+homophones: cue, Kew, kyu, Q, que_
+
+And how to conceptualize it in JavaScript.
+
+In this article I will be using JavaScript classes and ES6 in my implementation examples _Queue_. Inside of the class I will be using an array to store my data because it is a little easier to explain and to visualize in code, but you could also implement this with a _Linked List.._ Which is what I illustrated on the whiteboard 😅 If you are not familiar with a _Linked List_, feel free to read [**my blog**](https://romanturner.medium.com/the-starting-line-linked-lists-in-javascript-6c5284854ea3) about them.
+
+_The Starting Line is a series in production by_ **_Roman Turner_**_. Articles of helpful hints, and technical tips that can jumpstart your journey into development. Written by a bootcamper, for bootcampers._
+
+### What is a Queue?
+
+The Queue is an abstract data type, and a linear data structure.. woah, what?
+
+Abstract type means that we create a Queue by creating our own custom **Queue** **class**, and create methods that only allowing interaction with the data in a certain way.
+
+Linear data structure means that it is an ordered list of elements. The order for a _Queue_ is first-in, first-out (**FIFO**). The custom class methods we will create will enforce this behavior. This is the opposite of the _Stack_ data structure in order. If you want to know more about _Stacks_, you can take a look at my [**blog**](https://romanturner.medium.com/the-starting-line-stacks-in-javascript-ca29ab0e0728) about them.
+
+#### What are practical applications of this data structure?
+
+All kinds of systems that use requests, or jobs, or even clients that are processed by one or more handlers are perfect situations to implement a queue. When there are no handlers available you store the value in the queue, and when a handler becomes available the first value in the queue is processed. Imagine going to the bank on lunch break and there is only two tellers and ten people waiting in line. Initiate the queue!
+
+### Important Terms for a Queue
+
+**Tail / Back :** It is the last element in the Queue, and where you add your element to the Queue.
+
+**Head / Front :** It is the first element in the Queue, and where you remove your element from the Queue.
+
+### Important Methods for a Queue
+
+**enqueue() :**placing a new element or value at the back of the queue.
+
+**dequeue() :**removing the element at the front of the queue.
+
+**peek() :**checks the value at the front of the queue.
+
+**size() :**returns the length of the queue.
+
+**isEmpty()** :checks to see if the queue is empty.
+
+**clear() :**removes all elements
+
+### How to implement a Queue in JavaScript
+
+> Awesome! Now we can put it to use… but on what?
+
+Now introducing a new section of the data structure blog..
+
+### **Algorithm applications!**
+
+This truly digs into the WHY behind data structures. The example I will be going over can be found on [**_leetcode_**](https://leetcode.com/problems/moving-average-from-data-stream/)**_._**
+
+> Imagine you have constant data stream of integers, and a window, which is a controlled area somewhere in that stream of data. The boss comes down and says that you need to write a function that will calculate the moving average of all the integers that enter that window at any given time.
+
+When reading this problem we hit a couple key words that imply that a queue will be a great data structure to use to intuitively solve it. We have a stream, or flow of data and that implies an order. We have a window, or handler for that data that is limited to only being able to service a certain amount of elements at a time.
+
+![](img/1__hZKB2UgfZ9R5aCbbUbMkuw.jpeg)
+
+**W**e could initialize a _Queue_, to store the values from the data stream, and a variable that represents the size of the window.
+
+**E**ach time that we invoke the method to add to the Queue (Enqueue), we can also remove the first element from the Queue (Dequeue) and then can calculate the average.
+
+You could implement a custom class method for the Queue that will average all of the values inside of the Queue so you could simply call my_queue.average.
+
+With this problem finished you can piece together the calling cards for when to use a Queue in an algorithm.
+
+### In Summary
+
+**A Queue Basic Features:**
+
+- It is an ordered list of elements .
+- Queues operate on a first-in, first-out order.
+- To access an element in the middle you will have to remove all the elements in front of that element.
+
+**Common Methods for a Queue:**
+
+- enqueue, placing a new element or value at the back of the queue.
+- dequeue, removing the element at the front of the queue.
+- peek, checks the value at the front of the queue.
+- size, returns the length of the queue.
+- isEmpty, checks to see if the queue is empty.
+- clear, removes all elements from the queue.
+
+### Whew, you made it.
+
+Hopefully this sparked some understanding, and made some gears click for you with the Queue data structure. This is a part of the **The Starting Line: Data Structure Skim** a weekly article series where we will explore the wonderful things that hold wonderful things and resources on how to work with them.
+
+_Questions_, and _Comments_ welcomed.

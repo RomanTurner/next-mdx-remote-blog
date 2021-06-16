@@ -1,0 +1,43 @@
+---
+title: "VSCode, Emmett, and ERB"
+description: >-
+  I really love learning more about my development environment. By investing in
+  your environment and building shortcut muscle memory it will…
+date: "2021-04-30T22:08:54.409Z"
+categories: []
+keywords: []
+slug: /vscode-emmett-and-erb-562479a8ac0b
+---
+
+I really love learning more about my development environment. By investing in your environment and building shortcut muscle memory it will make you a better developer.
+
+As I started dipping my toes into VSCode I immediately was floored by all of the available utilities. So many extensions, and customizations that you can do to make your environment friendly, efficient, and fun.
+
+> Everything inside of VSCode is customizable.
+
+So as I started working with Ruby I had to start rendering view files, and a common template to use is the ERB file. Inside of this file I had to write more html and I thought I couldn’t do it with my best friend Emmet.. I was wrong, and I will show you how to access Emmet inside of your ERB files.
+
+#### Emmet —
+
+VSCode ships with Emmet, so you don’t have to worry about a download, just about getting familiar with its fantastic functionality.
+
+“E**_mmet_** _is a plug in for many popular text editors which greatly improves HTML & CSS workflow:” — emmet.io_
+
+Emmet automatically inserts the opening and closing tags of an element, and much more. Using shortcuts, you can increase your productivity without losing your patience.
+
+Here is a [link](https://docs.emmet.io/cheat-sheet/) to their website! And if you want a quick daily reminder, or update you can follow me on twitter at [KeyBoard ShortCuts](https://twitter.com/KeyBoardDSC).
+
+But Emmet is only enable inside of HTML documents. So lets get it working in our `view.index.erb` files!
+
+1.  ⌘ + , To open your settings.
+2.  In the search bar type in `emmet`
+3.  Under `Include Languages` tab select `Add Item`
+4.  This will add it to the setting.json which requires a json object, key: value pair.
+5.  Add `erb` as the key, and `html` as the value.
+6.  Add `ruby` as the key, and `html` as the value.
+
+![](img/1__VkukIr29p__iAz4aUqtUb2g.png)
+
+Now you have access to Emmet inside of your views for Ruby on Rails `erb` files!
+
+![](img/1__1OOXGbzV9U__p5erjg6WI8w.gif)

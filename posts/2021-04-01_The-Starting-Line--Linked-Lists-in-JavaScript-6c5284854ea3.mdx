@@ -1,0 +1,180 @@
+---
+title: "The Starting Line: Linked Lists in JavaScript"
+description: >-
+  The Starting Line is a series in production by Roman Turner. Articles of
+  helpful hints, and technical tips that can jumpstart your journey…
+date: "2021-04-01T15:54:13.977Z"
+categories: []
+keywords: []
+slug: /the-starting-line-linked-lists-in-javascript-6c5284854ea3
+---
+
+![](img/0__LXOTs6EnOtsPM__6s.jpg)
+
+_The Starting Line is a series in production by_ **_Roman Turner_**_. Articles of helpful hints, and technical tips that can jumpstart your journey into development. Written by a bootcamper, for bootcampers._
+
+### On Line 1
+
+When I started learning about data structures and specifically _Linked Lists_, I was working with arrays and the static array methods. I held the notion that they were a primitive type, like an int or object, instead of what they truly are: a structure built from primitives for us to store information in. I simply did not [grok](https://en.wikipedia.org/wiki/Grok).
+
+As our programs get larger and are storing more information, we must construct smarter structures, or perhaps more appropriate structures, for the data that we are storing.
+
+This is for gaining a perspective on linked lists, the WHAT, and a brief touch on the WHY. This is not an implementation blog. There are awesome implementation resources cited further in the post for those looking purely for the HOW.
+
+**In this article I will go over some of the basics for the _linked list_ data structure.**
+
+- **What is a linked list?**
+- **How it is visualized in theory.**
+- **How it is visualized in code.**
+- **How does a linked list work?**
+- **The ‘Why’ to use a linked list.**
+- **Practical applications and examples of use.**
+
+I will be using examples using ES6 and assuming that you (the dear reader) knows what primitive types are in JavaScript. If not, checkout this [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures) doc and get comfy with looking at their documentation.
+
+### What is a Linked List?
+
+> “Linked list is a common data structure made of a chain of nodes in which each node contains a value and a pointer to the next node in the chain. The head pointer points to the first node, and the last element of the list points to null. When the list is empty, the head pointer points to null.” — [educative.io](https://www.educative.io/edpresso/what-is-a-linked-list)
+
+When I first read those explanations it just didn’t help it click. So let us try a couple things to help.
+
+#### **visualize this in theory:**
+
+![](img/1__6ReSYwX__z__n4jWPCRSxqBw.png)
+
+This helps us understand that each link is connected and that they daisy-chain with a pointer from one element to the next, but how do we as developers create a structure like this with primitive types?
+
+#### let us **visualize this in code:**
+
+```javascript
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+  }
+}
+
+let node1 = new ListNode(2);
+let node2 = new ListNode(5);
+node1.next = node2;
+let list = new LinkedList(node1);
+```
+
+The code above shows us an example of a linked list in JavaScript. Seeing this helped demystify a lot for me. Let us _break it down_. In JavaScript we are working with primitives to create linked lists so I am going to pivot into explaining these new terms in the primitive form.
+
+### How does it work?
+
+In essence we are creating an object called **list**. This is the base of our Linked ‘**List**”.
+
+The **list** object has a key called **head**. The special thing about the **head** is that it does not hold a value, but is just a **pointer** to what actually holds the value. The continuing nested objects will contain values and pointers until the last element points to **null.** If you need a reminder on how referencing works, check out this helpful [blog](https://daveceddia.com/javascript-references/).
+
+So we have a bunch of nested objects (and the point here is to realize that that is just what they are, objects) and to clarify what their purpose we name them after what they do.
+
+#### Tie primitive with structure
+
+Each nested object is referred to as a Node, and it is easy to think of these Nodes as **a list with the length of 1**, and the process of setting a _pointer_ is how we _link_ them together, otherwise they would just be different objects floating around in memory somewhere, _like a ship on open water._
+
+**Using ES6** class function we can now easily create linked lists.
+
+We can create functions that create **nodes** for us.
+
+We can use the full power of classes to set **methods** that will give us special powers over the _linked list_.
+
+It is with these **methods** that we will _manipulate_ the linked list. Adding a **node** or removing a node, printing the list, or getting the length of the list.
+
+if you are not comfortable with Classes in ES6 or if you are not comfortable with prototypal inheritance with objects in JavaScript I suggest reading more on those before tackling linked lists or other data structures that use these foundational building blocks to their furthest potential. Best place to get the goods is from the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) docs as always.
+
+If you would like to see a lovely repo with data structures written in JavaScript take a look at :
+
+> [Oleksii Trekhleb](https://github.com/trekhleb)’s Github [Repo](https://github.com/trekhleb/javascript-algorithms) on Data Structures and Algorithms
+
+[**trekhleb/javascript-algorithms**  
+\_📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings …\_github.com](https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/linked-list/LinkedList.js "https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/linked-list/LinkedList.js")[](https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/linked-list/LinkedList.js)
+
+### Implementation
+
+There are some wonderful guides out there that go step by step in implementing your own linked lists.
+
+**Resources on Implementation:**
+
+> Dave Cedia’s [Animated Guide](https://daveceddia.com/linked-lists-javascript/).
+
+[**Linked Lists for JavaScript Developers**  
+\_Data structures are the building blocks of the code we write every day. Whether you've written them yourself or not…\_daveceddia.com](https://daveceddia.com/linked-lists-javascript/ "https://daveceddia.com/linked-lists-javascript/")[](https://daveceddia.com/linked-lists-javascript/)
+
+> Roberto Hernandez’s [Blog](https://dev.to/blarzhernandez/understanding-and-implementing-linked-lists-in-javascript-with-es6-implementation-4nif).
+
+[**How to Implement a Linked List in JavaScript**  
+\_If you are learning data structures, a linked list is one data structure you should know. If you do not really…\_www.freecodecamp.org](https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/ "https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/")[](https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/)
+
+> [Sarah Chima Atuonwu](https://www.freecodecamp.org/news/author/sarah/)’s [Blog](https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/) on FreeCodeCamp.
+
+[**How to Implement a Linked List in JavaScript**  
+\_If you are learning data structures, a linked list is one data structure you should know. If you do not really…\_www.freecodecamp.org](https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/ "https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/")[](https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/)
+
+> [Bret Cameron](https://medium.com/@bretcameron?source=post_page-----3f71c83487b5--------------------------------)’s Blog Post
+
+[**Implementing a Linked List in JavaScript**  
+\_An Introduction to Data Structures in JavaScript_javascript.plainenglish.io](https://javascript.plainenglish.io/implementing-a-linked-list-in-javascript-3f71c83487b5 "https://javascript.plainenglish.io/implementing-a-linked-list-in-javascript-3f71c83487b5")[](https://javascript.plainenglish.io/implementing-a-linked-list-in-javascript-3f71c83487b5)
+
+(Let’s see how many articles on linked lists have the same cover photo)
+
+### Purpose
+
+There comes a time where utilizing a linked list will be the difference in how your web application performs.
+
+> In contrast to an array, which stores data contiguously in memory, a linked list can easily insert or remove nodes from the list without reorganization of the entire data structure.-[Shubhangi Raj Agrawal](https://medium.com/@shubhangirajagrawal?source=post_page-----6dd349c3dcc3--------------------------------)
+
+The size of a linked list is dynamic, and with methods you can manipulate them in special ways that you can not do with an array without it become expensive.
+
+A fun and enlightening video on how the JavaScript garbage collector works helped put this into perspective for me.
+
+### Gimme One Example..
+
+Each element is referred to as a **Node…** This reminds me of somewhere else where we use the word Node.. oh, that’s right, the **DOM** 🤯 (Brain exploded emoji).
+
+[**Linked Lists for Dummies | Blog | Miller Medeiros**  
+\_On high-level languages like JavaScript we usually don't care about how the objects are stored in the memory, we let…\_blog.millermedeiros.com](http://blog.millermedeiros.com/linked-lists/ "http://blog.millermedeiros.com/linked-lists/")[](http://blog.millermedeiros.com/linked-lists/)
+
+> The [DOM is a linked list](http://www.quirksmode.org/dom/w3c_core.html#domtree), you use `node.nextSibling`, `node.parentNode`, `node.firstChild`, etc to iterate over the elements. Linked Lists are very good for this use case since we add/remove items and rearrange the nodes many times during the application life cycle. It also simplifies the traversal a lot, navigating lists by index can be very cumbersome, `node.previousSibling` is way simpler than `nodesList[nodesList.indexOf(node) - 1]`. — Miller Medeiros
+
+### Practical Applications
+
+The point behind this blog is not about the HOW, but the **WHAT,** and **WHY** but when you understand the W&W you can start to see the HOW and where linked lists are being used.
+
+Because of its abilities of :
+
+- Fast insertion / removal
+- Fast access to first element (and end if implemented bidirectional)
+- Efficient memory usage
+- Dynamic storage
+
+**Practical Applications** of a _linked list_ include building the base for other more controlled data structures, specifically the **Queue,** and the **Stack.** Each follow a design paradigm for controlling how the data is accessed, the Queue being _first in, first out (_**_FIFO_**_)_ and the Stack being _first in, last out (_**_FILO_**_)._ I am planning on covering these in upcoming articles.
+
+You want more examples though, I know you do..
+
+[Deepanshi_Mittal](https://auth.geeksforgeeks.org/user/Deepanshi_Mittal/articles) @ GeekforGeeks makes a nice list of practical applications:
+
+> Implementation of [stacks](https://www.geeksforgeeks.org/stack-data-structure/) and [queues](https://www.geeksforgeeks.org/queue-data-structure/)
+
+> Implementation of graphs : [Adjacency list representation of graphs](https://www.geeksforgeeks.org/graph-and-its-representations/) is most popular which is uses linked list to store adjacent vertices.
+
+> Dynamic memory allocation : We use linked list of free blocks.
+
+> Maintaining directory of names
+
+> Performing arithmetic operations on long integers
+
+> Manipulation of polynomials by storing constants in the node of linked list
+
+> representing sparse matrices
+
+**_Click the link below to read more_**
+
+[**Applications of linked list data structure - GeeksforGeeks**  
+\_A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The…\_www.geeksforgeeks.org](https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/ "https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/")[](https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/)
+
+#### **Whew, you made it.**
+
+Hopefully this sparked some understanding, and made some gears click for you on linked lists. This is a part of the **The Starting Line: Data Structure Skim** a weekly article series where we will explore the wonderful things that hold wonderful things and resources on how to work with them.
+
+_Questions_, and _Comments_ welcomed.

@@ -1,0 +1,123 @@
+---
+title: "The Starting Line: Stacks in JavaScript"
+description: >-
+  As we make our way through more data structures we will be building off of
+  what we have learned from previous blog posts.
+date: "2021-04-07T22:40:32.995Z"
+categories: []
+keywords: []
+slug: /the-starting-line-stacks-in-javascript-ca29ab0e0728
+---
+
+**A**s we make our way through more data structures we will be building off of what we have learned from previous blog posts.
+
+In this article we will be diving into the _Stack_ data structure and how to conceptualize it in JavaScript.
+
+_The Starting Line is a series in production by_ **_Roman Turner_**_. Articles of helpful hints, and technical tips that can jumpstart your journey into development. Written by a bootcamper, for bootcampers._
+
+In this article I will be using JavaScript classes and ES6 in my implementation examples and covering multiple ways on how but focusing on implementing a _Stack_ using a _Linked List_. If you are not familiar with a _Linked List_, feel free to read [**my blog**](https://romanturner.medium.com/the-starting-line-linked-lists-in-javascript-6c5284854ea3) about them. The main goal for this article remains the same through this series, it is not the HOW, but the WHAT, and WHY.
+
+### What is a Stack?
+
+A _Stack_ is a linear data structure (we go over this in a minute), where elements are ‘**stacked**’ on top of each other. This limits access to data in _Stack_ to just _First In Last Out (FIFO)_ or referred also as _Last In First Out (LIFO)_ you will see both of these terms used interchangeably in regards to a _Stack_.
+
+If you are thinking, “Woah, sounds limiting, and specific”. You are correct and you will find out as you work with different data structures that it is the limitations that give these structures, their _structure — and their strengths._
+
+View an object as an atom, with many we create different elements that then take on different properties. It is those properties that make them unique and valuable for different jobs. We are creating tools from these atomic objects, and there is always the right tool for each job.
+
+![](img/1__0gtSWKkIohB3MdsasY13Hg.jpeg)
+
+#### What makes a Stack a Stack
+
+We should start with what type of data structure is a stack.
+
+> A Stack is a linear data structure.
+
+A linear data structure traverses through elements/nodes sequentially.
+
+We can choose between a couple of implementation methods to create our Stack in JavaScript.
+
+We have the choice between using an array, which has the built in array method functionality of “pop”
+
+We can also implement a Stack with a [Linked-List](https://romanturner.medium.com/the-starting-line-linked-lists-in-javascript-6c5284854ea3). Which is the implementation we will be using in this blog.
+
+### What is the difference?
+
+To know the difference and what is going to work best for what we need, we need to know the functionality of a _Stack._
+
+![](img/1____BWLiKNuT0u3blB35dmWcw.jpeg)
+
+Because a _Stack’s FILO_ nature we are limited too interacting with only the last element/node added to the _Stack_. If we want to interact with an element/node in the second position, we would have to remove the first element/node.
+
+The _Stack_ has three main operations:
+
+- **Push( )** — Add element/node to the top of the S*tack.*
+- **Pop( )** — Removes and returns the element/node at the top of the _Stack._
+- **Peek( )/Top ( )** — This operation ‘peeks’ at the last element/node that was pushed onto the _Stack._
+
+All of those operations sound like pretty familiar functions, all of them can be implemented quite easily with the _Array_ data structure in JavaScript.
+
+**BUT,** we are not going to do that today. Because it is the perfect opportunity to learn about static vs. dynamic memory allocation! The arguments against using a linked list are valid but knowing how to implement a stack with a linked list is a valuable tool to have.
+
+### Static vs. Dynamic
+
+![](img/1__evMOE0LgOf2PiUI16CVoaA.jpeg)
+
+An array uses static memory allocation. Which is a contiguous block of memory. (Not redrawing the picture because I misspelled it in the picture 😅 leave a clap for the effort).
+
+Dynamic Allocation doesn’t rely on that allotment method, with a linked list the nodes do not have to be next to each other in memory which means when you create or remove a new node it doesn’t have to shift the entire contiguous block of memory around. Let us just take a minute to feel blessed for living after the brave developers that refined garbage collection enough that we can live in peace making our little web-apps that tell our FB friends what Actor they most look like.
+
+### What are some practical applications?
+
+The _Stack_ data structure is useful when the order of operations is important. Because we are limited to the data we are working with it creates a helpful bottleneck and also it has some great side-effects. Some common examples include:
+
+- **Reversing —** Because of the nature of FILO when we retrieve data from a _Stack_ it will be reversed. If you would like to easily reverse a string, push it in a _Stack_ pop it out.
+- **CTRL-Z** — The undo/redo functionality. Each time a change is made in an editor the state of the program is pushed onto a stack.
+- **Expression Evaluation** — Because it has a strict order of operations, by placing the highest precedence at the top of the stack they will implement first.
+- **Backtracking** — Because you can return to a previous state by using stack you can explore different methods to see what works best, imagine a simplified Git.
+
+### Implementation
+
+A Stack implemented in JavaScript using a Linked List.
+
+Using ES6 Classes in JavaScript we will have to create our foundation _Linked List_. By managing the methods that the _Linked List_ has we will create a _Stack_ data Structure.
+
+**Create the Node**
+
+**Create the Stack**
+
+#### **Add Operations — The methods used on our data.**
+
+**Push ( )**
+
+**Pop ( )**
+
+**Peek ( )**
+
+#### These are the big 3 operations that define a Stack data Structure.
+
+Below is a full Preview of the Stack Class. and a couple other helpful Stack operations! Thanks for coming by, leave a clap and share it around with those in your cohort.
+
+### Whew, you made it.
+
+Hopefully this sparked some understanding, and made some gears click for you with the Stack data structure. This is a part of the **The Starting Line: Data Structure Skim** a weekly article series where we will explore the wonderful things that hold wonderful things and resources on how to work with them.
+
+_Questions_, and _Comments_ welcomed.
+
+#### Additional Operations that can be helpful
+
+**toArray( )**
+
+**isEmpty ( )**
+
+**clear ( )**
+
+**Full Stack Class**
+
+Sources:
+
+[**Data Structures/Stacks and Queues - Wikibooks, open books for an open world**  
+\_To do: queue implemented as an array: circular and fixed-sized A stack is a basic data structure that can be logically…\_en.wikibooks.org](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues "https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues")[](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues)
+
+[**FACE Prep | Land your dream Tech job with FACE Prep**  
+\_FACE Prep is India's best platform to prepare for your dream tech job. We offer ProGrad Certification program, free…\_www.faceprep.in](https://www.faceprep.in/data-structures/stack-applications-in-data-structure/ "https://www.faceprep.in/data-structures/stack-applications-in-data-structure/")[](https://www.faceprep.in/data-structures/stack-applications-in-data-structure/)

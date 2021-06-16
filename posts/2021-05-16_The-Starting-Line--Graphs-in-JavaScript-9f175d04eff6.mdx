@@ -1,0 +1,144 @@
+---
+title: "The Starting Line: Graphs in JavaScript"
+description: >-
+  The Starting Line is a series in production by Roman Turner. Articles of
+  helpful hints and technical tips that can jumpstart your journey…
+date: "2021-05-16T23:05:06.455Z"
+categories: []
+keywords: []
+slug: /the-starting-line-graphs-in-javascript-9f175d04eff6
+---
+
+_The Starting Line is a series in production by_ **_Roman Turner_**_. Articles of helpful hints and technical tips that can jumpstart your journey into development. Written by a bootcamper, for bootcampers._
+
+This is our first installment of a non-linear data structure. Much like how a Linked-List is a base structure that you give special methods and it evolves into a queue, or a stack, the _Graph_ is a base structure that can be expounded upon.
+
+So there is no confusion, for students in the United States, a _Graph_ is often portrayed as a chart or a grid which is misleading in the proper terms of a _Graph_ data structure. A graph as a data structure is depicted as a mess of nodes and connections.
+
+![](img/0__310KhNTHCt6VI60E.jpg)
+
+### Grokking the Graph
+
+There is a lot of content to talk about with _Graphs,_ so I am going to break this up into a couple blog posts that will dive further into specific implementation and algorithmic examples for each. This post is on the big picture, an overview of the _Graph._
+
+#### What is a Graph
+
+> “Graph data structure consists of a finite and possibly mutable set of vertices or nodes or points together with a set of ordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.” — Wikipedia
+
+To simplify the definition, a _graph_ is just a set of nodes and their connections. Now, you might say, “a linked list fits that definition, it is a set of nodes that are connected.” That is true, but with a linked list, it has to be a linear-data structure. A _graph_ on the other hand treats a node with indifference. There is no ‘entry’ point, there are just nodes and what links them together.   
+This puts it very simply, but until we start defining types of _graphs_ we really just have a blob of nodes and pointers, imagine the nested holiday lights that live in a box in your parent’s attic.
+
+#### Graph Terminology
+
+Let us start with using proper terminology when referencing a _graph_. All we know at this moment is that we have nodes and connections.
+
+![](img/1__hSb9U2gXMFomvqzhAznDbw.jpeg)
+
+In a graph:
+
+The node is referred to as a **Vertex**, many vertex are referred as **Vertices**.
+
+The connections (link, pointer)between nodes is referred to as an **Edge**.
+
+We are going to hold off on more terms, as there are many more but they can convolute us before we jump into what a _graph_ is at its core.
+
+### Graphs Represented in JavaScript
+
+There are two common ways that a graph is represented in JavaScript; an **Adjacency List,** and an **Adjacency Matrix.**
+
+#### Adjacency Matrix
+
+An adjacency matrix, which is a square matrix used to represent the edges of a graph.
+
+> “A square matrix is a two-dimensional array, an array which contains arrays all of equal size to itself. “ — Regina Furness
+
+If you’d like to know more about implementing a weighted graph with an adjacency matrix checkout this blog:
+
+[**Representing a Weighted Graph with an Adjacency Matrix in JavaScript**  
+\_I recently came across an implementation of an undirected weighted graph using an adjacency matrix. Prior to this, I…\_reginafurness.medium.com](https://reginafurness.medium.com/representing-a-weighted-graph-with-an-adjacency-matrix-in-javascript-8a803bfbc36f "https://reginafurness.medium.com/representing-a-weighted-graph-with-an-adjacency-matrix-in-javascript-8a803bfbc36f")[](https://reginafurness.medium.com/representing-a-weighted-graph-with-an-adjacency-matrix-in-javascript-8a803bfbc36f)
+
+A representation of a square matrix in JavaScript:
+
+The matrix lists all nodes horizontally and vertically. With an **adjacency matrix** you can have a sparse graph or a dense graph depending on how many connections are made. You can also have a complete graph if all possible connections are made.
+
+We are not going to dive in too deep into the adjacency matrix in this post but I will attach some references at the bottom of the blog for the curious.
+
+#### Adjacency List
+
+The most common way to represent a graph, the adjacency list stores each vertex as a key in an Object that contains an array or linked-list of its edges. This is represented in JavaScript like this:
+
+After looking at these representations doesn’t it help peel back the layers of confusing terms. They are simply keys and values of a primitive object that hold correlations that we can use to manipulate data with.
+
+#### More Terms
+
+A **Degree** is the number of **edges** connected to a **vertex** (remember, because these are not linear structures they can have many edges).
+
+![](img/1__M6SNY7wM9Q5xwhPZTn8R0g.jpeg)
+
+**Degree of a vertex:** The total number of edges connected to a vertex. There are two types of degrees:
+
+- _In-Degree: The total number connected to a vertex._
+- _Out-Degree: The total of outgoing edges connected to a vertex._
+
+**Adjacency:** Two vertices are said to be adjacent if there is an edge connecting them directly.
+
+**Parallel Edges:** Two undirected edges are parallel​ if they have the same end vertices. Two directed edges are parallel if they have the same origin and destination.
+
+**Self Loop:** This occurs when an edge starts and ends on the same vertex.
+
+**Isolated vertex:** A vertex with zero degree.
+
+_Review these terms as you need them, but memorizing them at the moment isn’t needed to grok the graph._
+
+### Types of Graphs
+
+Here is where we will have many many different types of graphs and with that, many different use cases, morphing and verbiage.
+
+#### Graph Direction
+
+The two typical suspects are **undirected graphs** , and **directed** **graphs.**
+
+![](img/1__efHQH4rVtnaIRNT4GQeAqw.jpeg)
+![](img/1__siMWCrYpZx2tbyRNuysrsA.jpeg)
+
+If the edges are multi or bi-directional, then we have an **undirected graph**.   
+If the edges have a direction, then we have a **directed graph**(_di-graph_). Much like a street you drive down, it could be a one-way (**directed**) or traffic flows both ways (**undirected**).
+
+#### Types of Graph
+
+You will find that not all of the nodes will be connected. There are special names for each type of graph based on the ‘connectedness’ (made that up just now) of the graph.
+
+![](img/1__Vma1gDFS__gbLR3WKKz1TEg.jpeg)
+![](img/1__jSyn76dLtFuljlKtKrlEAA.jpeg)
+![](img/1__dyeqQBFdJUBLgGsH4F4fGQ.jpeg)
+
+Starting with all **vertex** that share at least one **edge** with another **vertex** is a **Connected Graph** _(I admit while writing this section I called each_ **_vertex_** _a_ **_node_**_, and had to go back and change it)_.
+
+When you have a _graph_ where you have an _isolated_ **vertex**, you have a **Disconnected Graph.**
+
+And the messy but **Complete Graph** where every **vertex** shares an **edge** with every other **vertex**. _You can compute this easily though where a complete graph each node should have the amount of_ **_vertex-1 edges_**_._
+
+Now, **edges** can also hold a _value_. When the **edge** holds a _value_ it is referred to as its **weight**. When a _graph_ has _weighted edges_, it is referred to as a **Weighted Graph.**
+
+### Whew, you made it.
+
+Hopefully this sparked some understanding, and made some gears click for you with the Graph data structure. This is a part of the **The Starting Line: Data Structure Skim** a weekly article series where we will explore the wonderful things that hold wonderful things and resources on how to work with them.
+
+In my next Starting Line post I will go through a graph implementation with an Adjacency List and some common use cases with an algorithm example from Leetcode. First we understand the what, then the why and how ☺️
+
+**Additional Resources:**
+
+_Implementation of Graphs_
+
+[**Graph Data Structures in JavaScript for Beginners**  
+\_In this post, we are going to explore non-linear data structures like graphs. Also, we'll cover the central concepts…\_adrianmejia.com](https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/ "https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/")[](https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/)
+
+_Intro to Graphs_
+
+[**Data Structures 101: introducing graphs in JavaScript**  
+\_With the graph data structure, we structure a program's data using nodes and edges. Today, we'll discuss the theory and…\_www.educative.io](https://www.educative.io/blog/data-structures-101-graphs-javascript "https://www.educative.io/blog/data-structures-101-graphs-javascript")[](https://www.educative.io/blog/data-structures-101-graphs-javascript)
+
+_Common Graph Algorithms_
+
+[**How to Implement 8 Essential Graph Algorithms in JavaScript**  
+\_In this article, I will implement 8 graph algorithms that explore the search and combinatorial problems (traversals…\_www.freecodecamp.org](https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/ "https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/")[](https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/)
